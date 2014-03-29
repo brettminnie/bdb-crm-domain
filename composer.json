@@ -1,0 +1,28 @@
+{
+    "name": "brettminnie/bdb-domain-model",
+    "description": "BDB CRM Domain Model",
+    "license" : [ "proprietary" ],
+    "authors": [
+        {
+            "name": "Brett Minnie",
+            "email": "brett@bdb-studios.co.uk",
+            "homepage": "http://bdb-studios.co.uk"
+        }
+	],
+    "require": {
+        "php": ">=5.3.3",
+	"doctrine/orm": ">2.4",
+        "doctrine/doctrine-orm-module": "0.8",
+        "doctrine/migrations": "dev-master",
+        "jms/serializer": "0.*"
+    },
+	"require-dev" : {
+	    "phpunit/phpunit" : "3.7.*"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "BDB" : "src/"
+        }
+   }
+
+}
