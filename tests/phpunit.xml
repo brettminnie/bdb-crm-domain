@@ -1,0 +1,18 @@
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="Bootstrap.php"
+        colors="true"
+        strict="true"
+        syntaxCheck="false"
+        verbose="true">
+    <testsuite name="BDB Domain Model">
+        <directory>.</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./../src/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
