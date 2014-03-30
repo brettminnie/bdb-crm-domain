@@ -23,7 +23,7 @@ trait HasPersonalDetails
     /**
      * @var string
      */
-    protected $surnames;
+    protected $surname;
 
     /**
      * @param string $title
@@ -97,5 +97,16 @@ trait HasPersonalDetails
         return $this->surname;
     }
 
-
+    public function getFullName()
+    {
+        return trim(
+            sprintf(
+                '%s %s %s %s',
+                $this->getTitle(),
+                $this->getForenames(),
+                $this->getMiddleNames(),
+                $this->getSurname()
+            )
+        );
+    }
 }
