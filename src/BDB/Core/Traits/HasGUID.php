@@ -3,7 +3,8 @@
 namespace BDB\Core\Traits;
 
 use BDB\Core\Exceptions\GUIDException;
-use BDB\Core\Interfaces\GUID;
+use Doctrine\ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Class HasGUID
@@ -11,7 +12,14 @@ use BDB\Core\Interfaces\GUID;
  */
 trait HasGUID
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     * @var string
+     * @Type("string")
+     */
     protected $guidData;
+
     /**
      * @return string
      */
