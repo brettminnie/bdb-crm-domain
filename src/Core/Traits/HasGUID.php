@@ -2,6 +2,9 @@
 
 namespace BDB\Core\Traits;
 
+use BDB\Core\Exceptions\GUIDException;
+use BDB\Core\Interfaces\GUID;
+
 /**
  * Class HasGUID
  * @package BDB\Core\Traits
@@ -19,6 +22,7 @@ trait HasGUID
 
     /**
      * @param string $guid
+     * @throws GUIDException
      * @return GUID
      */
     public function setGUID($guid = null)
@@ -26,7 +30,7 @@ trait HasGUID
         $guid = (null ===  $guid) ? self::generateGUID() : $guid;
 
         if(false === self::validateGuid($guid)) {
-            //@Todo custom exception
+            throw new GUIDException('The guid ' . $guid . ' is not valid');
         }
 
         $this->guidData = $guid;
