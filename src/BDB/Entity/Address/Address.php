@@ -3,13 +3,15 @@
 namespace BDB\Entity\Address;
 
 use BDB\Core\Interfaces\GUID;
+use BDB\Core\Interfaces\IsDefault;
 use BDB\Core\Traits\HasGUID;
+use BDB\Core\Traits\HasIsDefault;
 use Doctrine\ORM;
 
-class Address implements GUID
+class Address implements GUID, IsDefault
 {
-   use HasGUID;
-
+    use HasGUID;
+    use HasIsDefault;
 
     /**
      * @ORM\Column(type='json_array')
