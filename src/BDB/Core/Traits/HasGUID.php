@@ -18,14 +18,14 @@ trait HasGUID
      * @var string
      * @Type("string")
      */
-    protected $guidData;
+    protected $guid;
 
     /**
      * @return string
      */
     public function getGUID()
     {
-        return $this->guidData;
+        return $this->guid;
     }
 
     /**
@@ -41,7 +41,7 @@ trait HasGUID
             throw new GUIDException('The guid ' . $guid . ' is not valid');
         }
 
-        $this->guidData = $guid;
+        $this->guid = $guid;
         return $this;
     }
 
