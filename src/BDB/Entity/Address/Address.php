@@ -10,6 +10,7 @@ class Address implements GUID
 {
    use HasGUID;
 
+
     /**
      * @ORM\Column(type='json_array')
      * @var array
@@ -40,6 +41,11 @@ class Address implements GUID
      */
     protected $postCode;
 
+    /**
+     * @ORM\Column(type='string')
+     * @var string
+     */
+    protected $type;
     /**
      * @param $addressLines
      * @return Address
@@ -128,5 +134,23 @@ class Address implements GUID
     public function getTown()
     {
         return $this->town;
+    }
+
+    /**
+     * @param string $type
+     * @return Address
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }
