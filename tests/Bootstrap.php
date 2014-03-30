@@ -1,74 +1,10 @@
 <?php
+chdir(dirname(__DIR__));
+date_default_timezone_set('Europe/London');
+error_reporting(E_ALL|E_STRICT);
+ini_set('display_errors', true);
+ini_set('log_errors', false);
 
-namespace ApplicationTest;
-
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use Zend\Loader\AutoloaderFactory;
-use Zend\Mvc\Service\ServiceManagerConfig;
-use Zend\ServiceManager\ServiceManager;
-use RuntimeException;
-
-error_reporting(E_ALL | E_STRICT);
-chdir(__DIR__);
-
-/**
- * Test bootstrap, for setting up autoloading
- */
-class Bootstrap
-{
-    protected static $serviceManager;
-
-    public static function init()
-    {
-        $zf2ModulePaths = array(dirname(dirname(__DIR__)));
-        if (($path = static::findParentPath('vendor'))) {
-            $zf2ModulePaths[] = $path;
-        }
-        if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0]) {
-            $zf2ModulePaths[] = $path;
-        }
-
-        static::initAutoloader();
-
-    }
-
-    public static function chroot()
-    {
-        $rootPath = dirname(static::findParentPath('src'));
-        chdir($rootPath);
-    }
-
-    public static function getServiceManager()
-    {
-        return static::$serviceManager;
-    }
-
-    protected static function initAutoloader()
-    {
-        $vendorPath = static::findParentPath('vendor');
-        if (file_exists($vendorPath . '/autoload.php')) {
-            $loader = include $vendorPath . '/autoload.php';
-            $loader->add('ApplicationTest', 'module/Application/test/');
-        }
-
-        AnnotationRegistry::registerLoader('class_exists');
-    }
-
-    protected static function findParentPath($path)
-    {
-        $dir         = __DIR__;
-        $previousDir = '.';
-        while (!is_dir($dir . '/' . $path)) {
-            $dir = dirname($dir);
-            if ($previousDir === $dir) {
-                return false;
-            }
-            $previousDir = $dir;
-        }
-
-        return $dir . '/' . $path;
-    }
+if (file_exists('vendor/autoload.php')) {
+    $loader = include 'vendor/autoload.php';
 }
-
-Bootstrap::init();
-Bootstrap::chroot();

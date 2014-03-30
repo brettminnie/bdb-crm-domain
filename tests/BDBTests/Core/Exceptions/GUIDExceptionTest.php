@@ -1,6 +1,6 @@
 <?php
 
-namespace BDB\Core\Exceptions;
+namespace BDBTest\Core\Exceptions;
 
 class GUIDExceptionTest extends \PHPUnit_Framework_TestCase
 {
