@@ -8,3 +8,9 @@ ini_set('log_errors', false);
 if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
 }
+
+$_SERVER['HTTP_USER_AGENT'] = 'foo';
+$_SERVER['LOCAL_ADDR']      = '127.0.0.1';
+$_SERVER['LOCAL_PORT']      = '80';
+$_SERVER['REMOTE_ADDR']     = '127.0.0.1';
+$_SERVER['REMOTE_PORT']     = '80';
