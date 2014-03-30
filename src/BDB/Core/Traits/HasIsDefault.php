@@ -33,7 +33,7 @@ trait HasIsDefault
      */
     public function getIsDefault()
     {
-        return $this->getIsDefault();
+        return $this->isDefault;
     }
 
     /**
