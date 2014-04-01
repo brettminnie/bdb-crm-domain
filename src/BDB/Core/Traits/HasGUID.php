@@ -5,6 +5,7 @@ namespace BDB\Core\Traits;
 use BDB\Core\Exceptions\GUIDException;
 use Doctrine\ORM;
 use JMS\Serializer\Annotation\Type;
+use BDB\Core\Interfaces\GUID;
 
 /**
  * Class HasGUID
@@ -18,22 +19,23 @@ trait HasGUID
      * @var string
      * @Type("string")
      */
-    protected $guid;
+    protected static $guid;
 
     /**
      * @return string
      */
     public function getGUID()
     {
-        return $this->guid;
+        return self::$guid;
     }
 
     /**
      * @param string $guid
+     * @param bool   $overrideDefault
      * @throws GUIDException
      * @return GUID
      */
-    public function setGUID($guid = null)
+    public function setGUID($guid = null, $overrideDefault = false)
     {
         $guid = (null ===  $guid) ? self::generateGUID() : $guid;
 
@@ -41,7 +43,9 @@ trait HasGUID
             throw new GUIDException('The guid ' . $guid . ' is not valid');
         }
 
-        $this->guid = $guid;
+        if (true === $overrideDefault || null === self::$guid) {
+            self::$guid = $guid;
+        }
         return $this;
     }
 
