@@ -9,9 +9,10 @@
 namespace BDBTest\Entity\Person;
 
 
+use BDB\Entity\Address\Address;
 use BDB\Entity\Person\Person;
 
-class Test extends \PHPUnit_Framework_TestCase {
+class PersonTest extends \PHPUnit_Framework_TestCase {
 
     protected $person;
 
@@ -25,5 +26,9 @@ class Test extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($this->person instanceof Person);
     }
 
-    
+    public function testGetSetAddresses()
+    {
+        $expectedAddress = new Address();
+
+    }
 }
