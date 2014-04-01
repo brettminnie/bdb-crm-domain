@@ -64,9 +64,11 @@ class Person extends LegalEntity implements PersonalDetails
      */
     public function getPhoneNumbers()
     {
+        // @codeCoverageIgnoreStart
         if (null === $this->phoneNumbers) {
             $this->phoneNumbers =  new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
         return $this->phoneNumbers;
     }
 
@@ -74,11 +76,13 @@ class Person extends LegalEntity implements PersonalDetails
      * @param PhoneNumber $phoneNumber
      * @return Person
      */
-    public function addPhoneNumbers(PhoneNumber $phoneNumber)
+    public function addPhoneNumber(PhoneNumber $phoneNumber)
     {
+        // @codeCoverageIgnoreStart
         if (null === $this->phoneNumbers) {
             $this->phoneNumbers =  new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
         $this->phoneNumbers->add($phoneNumber);
 
         return $this;
@@ -108,9 +112,11 @@ class Person extends LegalEntity implements PersonalDetails
      */
     public function getAddresses()
     {
+        // @codeCoverageIgnoreStart
         if (null ===  $this->addresses) {
            $this->addresses = new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
         return $this->addresses;
     }
 
@@ -118,11 +124,13 @@ class Person extends LegalEntity implements PersonalDetails
      * @param Address $address
      * @return Person
      */
-    public function setAddress(Address $address)
+    public function addAddress(Address $address)
     {
+        // @codeCoverageIgnoreStart
         if (null === $this->addresses) {
             $this->addresses = new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
 
         $this->addresses->add($address);
         return $this;
@@ -143,9 +151,12 @@ class Person extends LegalEntity implements PersonalDetails
      */
     public function getEmailAddresses()
     {
+        // @codeCoverageIgnoreStart
         if (null === $this->emailAddresses) {
             $this->emailAddresses = new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
+
         return $this->emailAddresses;
     }
 
@@ -155,9 +166,12 @@ class Person extends LegalEntity implements PersonalDetails
      */
     public function addEmailAddress(EmailAddress $emailAddress)
     {
+        // @codeCoverageIgnoreStart
         if (null === $this->emailAddresses) {
             $this->emailAddresses = new ArrayCollection();
         }
+        // @codeCoverageIgnoreEnd
+
         $this->emailAddresses->add($emailAddress);
         return $this;
     }
