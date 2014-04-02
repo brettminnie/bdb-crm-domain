@@ -6,7 +6,7 @@
  * Time: 22:15
  */
 
-namespace BDBTest\Entity;
+namespace BDBTest\Entity\EmailAddress;
 
 
 use BDB\Core\Traits\HasGUID;
