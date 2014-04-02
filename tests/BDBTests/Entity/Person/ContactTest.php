@@ -5,22 +5,23 @@ namespace BDBTest\Entity\Person;
 
 use BDB\Entity\Address\Address;
 use BDB\Entity\EmailAddress\EmailAddress;
+use BDB\Entity\Person\Contact;
 use BDB\Entity\Person\Person;
 use BDB\Entity\PhoneNumber\PhoneNumber;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class PersonTest extends \PHPUnit_Framework_TestCase {
+class ContactTest extends \PHPUnit_Framework_TestCase {
 
     protected $person;
 
     public function setUp()
     {
-        $this->person = new Person();
+        $this->person = new Contact();
     }
 
     public function testSetUp()
     {
-        $this->assertTrue($this->person instanceof Person);
+        $this->assertTrue($this->person instanceof Contact);
     }
 
     public function testGetSetAddresses()
@@ -69,5 +70,23 @@ class PersonTest extends \PHPUnit_Framework_TestCase {
 
         $this->person->clearPhoneNumbers();
         $this->assertEmpty($this->person->getPhoneNumbers()->toArray());
+    }
+
+    public function testGetSetIsPrimary()
+    {
+        $expected = true;
+
+        $this->assertFalse($this->person->isPrimary());
+        $this->person->setIsPrimary($expected);
+        $this->assertEquals($expected, $this->person->isPrimary());
+    }
+
+    public function testGetSetContactType()
+    {
+        $expected = 'billing';
+
+        $this->assertEmpty($this->person->getContactType());
+        $this->person->setContactType($expected);
+        $this->assertEquals($expected, $this->person->getContactType());
     }
 }
