@@ -3,7 +3,7 @@
 namespace BDB\Core\Traits;
 
 use BDB\Core\Exceptions\GUIDException;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Type;
 use BDB\Core\Interfaces\GUID;
 

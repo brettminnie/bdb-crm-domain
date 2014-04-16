@@ -10,7 +10,7 @@ use BDB\Core\Traits\HasPersonalDetails;
 use BDB\Entity\Address\Address;
 use BDB\Entity\EmailAddress\EmailAddress;
 use BDB\Entity\PhoneNumber\PhoneNumber;
-use Doctrine\Orm;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Person extends LegalEntity implements PersonalDetails

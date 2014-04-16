@@ -2,25 +2,30 @@
 
 namespace BDB\Core\Traits;
 
+use Doctrine\ORM\Mapping as ORM;
 
 trait HasPersonalDetails
 {
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
     protected $title;
 
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
     protected $forenames;
 
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
     protected $middleNames;
 
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
     protected $surname;

@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: brettm
- * Date: 02/04/14
- * Time: 21:51
- */
 
 namespace BDB\Core\Traits;
 
+use Doctrine\ORM\Mapping as ORM;
 
 trait HasContact
 {

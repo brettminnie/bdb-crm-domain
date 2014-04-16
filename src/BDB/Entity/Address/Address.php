@@ -8,13 +8,20 @@ use BDB\Core\Interfaces\Status;
 use BDB\Core\Traits\HasGUID;
 use BDB\Core\Traits\HasIsDefault;
 use BDB\Core\Traits\HasStatus;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 class Address implements GUID, IsDefault, Status
 {
     use HasGUID;
     use HasIsDefault;
     use HasStatus;
+
+    /**
+     * @ORM\OneToOne(targetEntity="BDB\Entity\Address\Address")
+     * @ORM\JoinColumn(name="parent_guid", referencedColumnName="guid", nullable=true)
+     * @var Address
+     */
+    protected $parent;
 
     /**
      * @ORM\Column(type='json_array')
@@ -157,5 +164,23 @@ class Address implements GUID, IsDefault, Status
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @param Address $parent
+     * @return Address
+     */
+    public function setParentGuid(Address $parent)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+    /**
+     * @return Address
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

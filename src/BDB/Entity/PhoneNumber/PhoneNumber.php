@@ -10,7 +10,7 @@ use BDB\Core\Interfaces\Status;
 use BDB\Core\Traits\HasGUID;
 use BDB\Core\Traits\HasIsDefault;
 use BDB\Core\Traits\HasStatus;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 class PhoneNumber implements GUID, IsDefault, Status
 {

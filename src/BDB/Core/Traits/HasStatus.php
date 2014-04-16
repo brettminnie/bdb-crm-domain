@@ -3,7 +3,7 @@
 namespace BDB\Core\Traits;
 
 use BDB\Core\Interfaces\Status;
-use Doctrine\Orm;
+use Doctrine\ORM\Mapping as ORM;
 
 trait HasStatus
 {

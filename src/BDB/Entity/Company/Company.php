@@ -6,7 +6,7 @@ use BDB\Core\Abstracts\LegalEntity;
 use BDB\Core\Interfaces\Contact;
 use BDB\Entity\Address\Address;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Orm;
+use Doctrine\ORM\Mapping as ORM;
 
 class Company extends LegalEntity
 {

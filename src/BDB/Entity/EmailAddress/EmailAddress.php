@@ -10,7 +10,7 @@ use BDB\Core\Interfaces\Status;
 use BDB\Core\Traits\HasGUID;
 use BDB\Core\Traits\HasIsDefault;
 use BDB\Core\Traits\HasStatus;
-use Doctrine\Orm;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class EmailAddress

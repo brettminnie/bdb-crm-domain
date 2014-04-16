@@ -8,7 +8,7 @@
 
 namespace BDB\Core\Traits;
 
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 trait HasIsDefault
 {
